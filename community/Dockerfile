@@ -9,5 +9,7 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+COPY php.ini /usr/local/etc/php/conf.d/php.ini
+
 VOLUME /var/www/html/data
 EXPOSE 80
