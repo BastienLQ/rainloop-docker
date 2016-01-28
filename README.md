@@ -3,13 +3,11 @@
 ## Building
 
 ````bash
-cd community/
-docker build -t "rainloop-community:latest" .
+docker build -t "rainloop:community" community/
 ````
 
 ````bash
-cd standard/
-docker build -t "rainloop-standard:latest" .
+docker build -t "rainloop:standard" standard/
 ````
 
 ## Running
