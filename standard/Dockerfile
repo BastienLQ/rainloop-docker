@@ -5,9 +5,12 @@ RUN apt-get update && \
     curl -O http://repository.rainloop.net/v2/webmail/rainloop-latest.zip && \
     unzip rainloop-latest.zip && \
     rm rainloop-latest.zip && \
-    chmod -R 777 /var/www/html/data && \
+    find . -type f -exec chmod 644 {} \; && \
+    find . -type d -exec chmod 755 {} \; && \
+    chown -R www-data:www-data /var/www/html && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+    docker-php-ext-install pdo pdo_mysql
 
 COPY php.ini /usr/local/etc/php/conf.d/php.ini
 
